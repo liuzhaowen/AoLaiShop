@@ -45,3 +45,5 @@ class BaseAction:
             return self.find_element(toast_feature, 5, 0.1).text
         else:
             raise Exception("不好意思，toast信息不存在，请检查参数是否正确或者toast是否出现")
+
+
