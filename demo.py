@@ -17,11 +17,26 @@ desired_caps['noReset'] = True
 driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_caps)
 
 
-# 通过滑动4次找设置中的 关于手机 并点击
-for i in range(4):
-    driver.swipe(100, 2000, 100, 1000, 1000)
+# 1.通过滑动4次找设置中的 关于手机 并点击
+# for i in range(4):
+#     driver.swipe(100, 2000, 100, 1000, 1000)
+#
+# driver.find_element_by_xpath("//*[@text='关于手机']").click()
 
-driver.find_element_by_xpath("//*[@text='关于手机']").click()
+# 2.先找，如果有，直接定位，如果没有再滑动
+for i in range(10):
+    try:
+        driver.find_element_by_xpath("//*[@text='应用']").click()
+        break
+    except Exception:
+        driver.swipe(100, 2000, 100, 1000, 1000)
+
+
+
+
+
+
+
 
 
 time.sleep(5)
