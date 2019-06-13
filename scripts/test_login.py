@@ -11,7 +11,7 @@ class TestLogin:
 
 
     def setup(self):
-        self.driver = init_driver()
+        self.driver = init_driver(False)
         self.page = Page(self.driver)
 
     def teardown(self):
